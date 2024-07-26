@@ -1,4 +1,4 @@
-﻿___TERMS_OF_SERVICE___
+___TERMS_OF_SERVICE___
 
 By creating or modifying this file you agree to Google Tag Manager's Community
 Template Gallery Developer Terms of Service available at
@@ -115,7 +115,7 @@ const splitToBatches = (arr, size) => {
 addEventCallback((ctid, eventData) => {
 
   // Filter out tags that have the "exclude" metadata set to true
-  const tags = eventData.tags.filter(t => t.exclude !== 'true' && t.status !== null);
+  const tags = eventData.tags.filter(t => t.exclude !== 'true' && t.status !== null && t.status !== 'success');
   
   // If batching is enabled, split the tags into batches of the given size
   const batches = batchHits ? splitToBatches(tags, maxTags) : [tags];
@@ -228,6 +228,6 @@ scenarios: []
 
 ___NOTES___
 
-Created on 26/07/2024, 10:03:51
+Created on 26/07/2024, 15:59:24
 
 
