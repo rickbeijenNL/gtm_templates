@@ -30,27 +30,6 @@ ___TEMPLATE_PARAMETERS___
 
 [
   {
-    "type": "TEXT",
-    "name": "endPoint",
-    "displayName": "GET request endpoint",
-    "simpleValueType": true,
-    "valueHint": "e.g. https://track.com/collect",
-    "valueValidators": [
-      {
-        "type": "NON_EMPTY"
-      },
-      {
-        "type": "REGEX",
-        "args": [
-          "^https://.+"
-        ],
-        "errorMessage": "The endpoint must be a valid URL"
-      }
-    ],
-    "help": "Provide the URL to which the GET request with tag data is sent.",
-    "alwaysInSummary": true
-  },
-  {
     "type": "RADIO",
     "name": "batchHits",
     "displayName": "If you select No, details of all the tags that fired for any given hit are sent in a single GET request. If you select Yes, you can choose the maximum number of tags per request, and the tag will automatically send multiple requests if necessary.",
@@ -98,7 +77,7 @@ const event = readFromDataLayer('event');
 // Add a timestamp to separate events named the same way from each other
 const eventTimestamp = getTimestamp();
 
-const endPoint = data.endPoint;
+const endPoint = 'https://europe-west4-rb-gtm-monitoring.cloudfunctions.net/gtm_monitor';
 const batchHits = data.batchHits === 'yes';
 const maxTags = data.maxTags;
 
@@ -228,6 +207,6 @@ scenarios: []
 
 ___NOTES___
 
-Created on 26/07/2024, 15:59:24
+Created on 26/07/2024, 17:15:36
 
 
